@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link, Switch, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 
 import Home from 'page/home/index.jsx';
 import Layout from 'component/layout/index.jsx';
-
 
 class App extends Component {
 
