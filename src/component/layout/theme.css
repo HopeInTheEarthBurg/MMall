@@ -475,10 +475,6 @@ div#sideNav:hover {
     max-width: 170px;
 }
 
-.top-navbar {
-    margin: 0px;
-}
-
 .top-navbar .navbar-brand {
     color: #fff;
     width: 260px;
@@ -489,12 +485,15 @@ div#sideNav:hover {
     /* text-transform: uppercase; */
     line-height: 30px;
     background: #30cc7b;
+    padding-left: 20px;
 }
 
 .navbar-brand b {
     color: #4BD28C;
 }
-
+.top-navbar .nav {
+    margin: 0;
+}
 .top-navbar .nav > li {
     position: relative;
     display: inline-block;
@@ -644,7 +643,19 @@ ul.nav.nav-second-level.collapse.in {
 }
 
 .navbar-header {
+    width: 360px;
+    height: 100%;
+    float: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     background: transparent;
+}
+.navbar-brand {
+    width: 200px;
+}
+#sideNav {
+    float: right;
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
