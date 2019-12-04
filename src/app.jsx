@@ -6,6 +6,9 @@ import Home from 'page/home/index.jsx';
 import Layout from 'component/layout/index.jsx';
 
 
+// import { createBrowserHistory } from 'history';
+// export default createBrowserHistory()
+
 import { browserHistory } from 'react-router'
 // const history = createMemoryHistory(location)
 

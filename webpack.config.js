@@ -72,7 +72,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
             filename: 'js/base.js'
-        }),
+        })
     ],
     devServer: {
         port: 8088,
