@@ -3,3 +3,9 @@
 	font-size: 31px;
 	margin-right: 6px;
 }
+.top-navbar {
+	top: 0;
+}
+.top-navbar .nav {
+    padding-left: 360px;
+}

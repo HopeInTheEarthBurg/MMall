@@ -5,11 +5,25 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import Home from 'page/home/index.jsx';
 import Layout from 'component/layout/index.jsx';
 
-class App extends Component {
 
+import { browserHistory } from 'react-router'
+// const history = createMemoryHistory(location)
+
+// const createBrowserHistory = require('history').createBrowserHistory;
+//
+// const app = {
+//     history: createBrowserHistory()
+// }
+//
+// let _createHashHistory = _interopRequireDefault(require('history').createHashHistory)
+
+class App extends Component {
+    constructor (props) {
+        super(props)
+    }
     render() {
         return (
-            <Router>
+            <Router history={browserHistory}>
                 <Layout>
                     <Switch>
                         <Route exact path = "/" component = {Home}/>

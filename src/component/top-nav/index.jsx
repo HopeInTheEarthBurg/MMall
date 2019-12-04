@@ -9,14 +9,16 @@ class TopNav extends React.Component {
         return (
             <nav className="navbar navbar-default top-navbar" role="navigation">
                 <div className="navbar-header">
-                    <button type="button" className="navbar-toggle waves-effect waves-dark" data-toggle="collapse" data-target=".sidebar-collapse">
-                        <span className="sr-only">Toggle navigation</span>
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                    </button>
+                    {/*<button type="button" className="navbar-toggle waves-effect waves-dark" data-toggle="collapse" data-target=".sidebar-collapse">*/}
+                        {/*<span className="sr-only">Toggle navigation</span>*/}
+                        {/*<span className="icon-bar"></span>*/}
+                        {/*<span className="icon-bar"></span>*/}
+                        {/*<span className="icon-bar"></span>*/}
+                    {/*</button>*/}
                     <a className="navbar-brand waves-effect waves-dark" href="index.html"><i className="large material-icons">insert_chart</i> <strong>TRACK</strong></a>                  
-            <div id="sideNav" href="" className=""><i className="material-icons dp48">toc</i></div>
+                <div id="sideNav" href="" className="">
+                    <i className="material-icons dp48">toc</i>
+                </div>
             </div>
 
             <ul className="nav navbar-top-links navbar-right"> 

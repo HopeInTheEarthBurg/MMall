@@ -2,9 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const createBrowserHistory = require( 'history');
 module.exports = {
     entry: './src/app.jsx',
+
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/dist/',
@@ -71,7 +72,7 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common',
             filename: 'js/base.js'
-        })
+        }),
     ],
     devServer: {
         port: 8088,
@@ -79,4 +80,5 @@ module.exports = {
             index: '/dist/index.html'
         }
     }
+
 }
