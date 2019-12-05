@@ -2,7 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const createBrowserHistory = require( 'history');
+
+
 module.exports = {
     entry: './src/app.jsx',
 
