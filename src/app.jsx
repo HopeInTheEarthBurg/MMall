@@ -20,6 +20,12 @@ import { browserHistory } from 'react-router'
 //
 // let _createHashHistory = _interopRequireDefault(require('history').createHashHistory)
 
+
+// import { createBrowserHistory } from 'history';
+// export default createBrowserHistory()
+
+
+
 class App extends Component {
     constructor (props) {
         super(props)

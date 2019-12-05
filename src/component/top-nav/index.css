@@ -9,3 +9,6 @@
 .top-navbar .nav {
     padding-left: 360px;
 }
+.top-navbar .nav li {
+	float: right;
+}

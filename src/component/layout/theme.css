@@ -1,6 +1,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background: #f3f3f3;
+    overflow-x: hidden;
 }
 
 #wrapper {
@@ -87,6 +88,8 @@ p {
     box-shadow: none;
     border: none;
     background: #2c445a;
+    bottom: 0;
+    overflow-y: auto;
 }
 
 #page-wrapper {
@@ -458,7 +461,7 @@ footer p {
 /*----------------------------------------------
     MENU STYLES
 ------------------------------------------------*/
-div#sideNav:hover {
+#sideNav:hover {
     color: #30cc7b;
 }
 
@@ -495,14 +498,18 @@ div#sideNav:hover {
     display: inline-block;
     margin: 0px;
     padding: 0px;
+    height: 60px;
 }
-
+.top-navbar .nav > li:hover .dropdown-menu {
+    display: block;
+}
 .top-navbar .nav > li > a {
     position: relative;
     display: block;
-    padding: 17px;
+    padding: 20px;
     color: #484848;
     margin: 0px;
+    height: 20px;
 }
 
 .top-navbar .nav > li > a:hover, .top-navbar .nav > li > a:focus {
@@ -512,14 +519,20 @@ div#sideNav:hover {
 }
 
 .top-navbar .dropdown-menu {
+    position: absolute;
     min-width: 230px;
     border-radius: 0 0 4px 4px;
     border: 0;
+    background: #FFF;
+    display: none;
+}
+.top-navbar .dropdown-menu a {
+    margin-left: -230px;
+    cursor: pointer;
 }
 
-.top-navbar .dropdown-menu > li > a:hover, .top-navbar .dropdown-menu > li > a:focus {
+.top-navbar .dropdown-menu > li :hover, .top-navbar .dropdown-menu > li > a:focus {
     color: #225081;
-    background: none;
 }
 
 .dropdown-tasks {
@@ -610,8 +623,8 @@ ul.nav.nav-second-level.collapse.in {
 .sidebar-collapse .nav > li > a:focus {
     outline: 0;
 }
-.sidebar-collapse .nav li :hover {
-    background: red;
+.sidebar-collapse .nav li:hover {
+    background: #2EA7EB;
 }
 .top-navbar {
     background: #ffffff;
@@ -744,11 +757,6 @@ ul.dropdown-menu.dropdown-messages li a div {
 }
 
 @media(max-width:480px) {
-    #page-wrapper {
-        position: relative;
-        top: 93px;
-    }
-
     .page-header small {
         display: block;
         padding-top: 14px;
@@ -765,6 +773,22 @@ ul.dropdown-menu.dropdown-messages li a div {
         border-radius: 100%;
         overflow: hidden;
         margin: 14px;
+    }
+    .top-navbar {
+        position: relative;
+    }
+    .top-navbar .navbar-brand {
+        width: 100%;
+    }
+    .navbar-side {
+        z-index: 1;
+        width: 100%;
+        top: 0;
+        position: relative;
+    }
+    #page-wrapper {
+        position: relative;
+        top: 93px;
     }
 }
 
