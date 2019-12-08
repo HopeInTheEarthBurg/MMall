@@ -552,7 +552,7 @@ div#sideNav:hover {
 	padding-top: 4px;
 }
 
-.active-menu, .active-menu i {
+.active-menu {
 	background-color: #233342 !important;
 	color: #fff !important;
 }
