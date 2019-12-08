@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom'
-import './index.css'
 
 class SideNav extends React.Component {
     constructor(props){
