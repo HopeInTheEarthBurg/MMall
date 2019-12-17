@@ -7,13 +7,22 @@ class MUtil {
                 dataType: param.dataType || 'json',
                 data: param.data || null,
                 success (res) {
-                    console.log(res)
+                    if (0 === res.status) {
+                        typeof resolve === 'function' && resolve(res.data, res.msg);
+                    }else if (10 === res.status) {
+                        this.doLogin()
+                    }else {
+                        typeof reject === 'function' && reject(res.msg || res.data)
+                    }
                 },
                 error (err) {
-                    console.log(err)
+                    typeof reject === 'function' && reject(res.statusText)
                 }
             })
         })
+    }
+    doLogin(){
+        window.location.href = '/login?redirect=' + encodeURIComponent(window.location.pathname)
     }
 }
 

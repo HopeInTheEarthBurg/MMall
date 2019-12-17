@@ -1,6 +1,8 @@
 import React from 'react';
 import MUtil from 'util/mm.jsx';
+import User from 'service/user-service.jsx';
 const _mm = new MUtil();
+const _user = new User();
 import './index.less';
 
 class Login extends React.Component {
@@ -13,19 +15,20 @@ class Login extends React.Component {
     }
 
     onInputChange(e){
-        let inputValue = e.target.value;
-            inputName = e.target.name;
-        console.log(inputName,inputValue)
+        let inputValue = e.target.value,
+            inputName = e.target.name
+            console.log(inputName,inputValue)
         this.setState({
             [inputName]: inputValue,
         })
     }
 
     onSubmit(){
-        _mm.request({
-            url: 'http://www.baidu.com'
+        _user.login({
+            username: this.state.username,
+            password: this.state.password
         }).then((res) => {
-
+            console.log('不成功，便成仁')
         },)
     }
 
