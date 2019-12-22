@@ -1,17 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import MUtil from 'util/mm.jsx'
+import User from 'service/user-service.jsx'
+
+const _mm = new MUtil()
+const _user = new User()
 
 class TopNav extends React.Component {
     constructor(props){
         super(props)
         this.state ={
-            isShow:true
+            isShow:true,
+            username: _mm.getStorage('userInfo').username || ''
         }
     }
 
-
     onLogout(){
-        console.log('haha')
+        _user.logout().then(res => {
+            _mm.removeStorage('userInfo')
+            // this.props.history.push('/login')
+            window.location.href = '/login'
+        },errMsg => {
+            _mm.errorTips(errMsg)
+        })
     }
 
     JS(selector) {
@@ -20,7 +31,6 @@ class TopNav extends React.Component {
     };
 
     sideToggle (){
-
         var isShow = this.state.isShow
         var Node = this.JS('.navbar-side')
         var Page = this.JS('#page-wrapper')
@@ -37,9 +47,6 @@ class TopNav extends React.Component {
                 isShow :!isShow
             })
         }
-
-
-
     }
 
 
@@ -55,7 +62,6 @@ class TopNav extends React.Component {
                     {/*</button>*/}
                     <Link className="navbar-brand waves-effect waves-dark" to="index.html">
                         <i className="large material-icons">HAPPYMMALL</i>
-                        <strong>万水</strong>
                     </Link>
                 <div id="sideNav" href="" onClick={()=>{this.sideToggle()}} className="">
                     <i className="material-icons dp48">toc</i>
@@ -66,7 +72,11 @@ class TopNav extends React.Component {
                 <li>
                     <a className="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1">
                         <i className="fa fa-user fa-fw"></i>
-                        <b>欢迎，admin</b>
+                        {
+                            this.state.username 
+                            ? <span>欢迎，{this.state.username}</span>
+                            : <span>欢迎您</span>
+                        }
                         <i className="fa fa-caret-down"></i>
                     </a>
                     <ul className="dropdown-menu dropdown-user">
