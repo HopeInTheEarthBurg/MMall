@@ -24,11 +24,11 @@ class App extends Component {
                             <Switch>
                                 <Route exact path = "/" component = {Home} />
                                 <Route path="/product/index" component={ProductList} />
-                                {/* <Route path="/product" component={ProductRouter} /> */}
+                                <Route path="/product" component={ProductRouter} />
                                 <Route path="/product.category" component={Error} />
                                 <Route path="/user/index" component={UserList} />
                                 <Redirect exact from="/user" to="/user/index" />
-                                <Redirect exact from="/product" to="/product/index" />
+                                {/* <Redirect exact from="/product" to="/product/index" /> */}
                                 <Route component={Error} />
                             </Switch>
                         </Layout>

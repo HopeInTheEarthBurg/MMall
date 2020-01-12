@@ -6,6 +6,7 @@ import './index.scss'
 
 import PageTitle from 'component/page-title/index.jsx'
 import TableList from 'util/table-list/index.jsx'
+import ListSearch from './list-search.jsx'
 import Pagination from 'util/pagination/index.jsx'
 
 const _mm = new MUtil()
@@ -16,7 +17,8 @@ class ProductList extends React.Component {
     super(props)
     this.state = {
       list: [],
-      pageNum: 1
+      pageNum: 1,
+      listType: 'list'
     }
   }
 
@@ -25,13 +27,32 @@ class ProductList extends React.Component {
   }
 
   loadProductList() {
-    _product.getProductList(this.state.pageNum).then(res => {
+    let listParam = {}
+    listParam.listType = this.state.listType
+    listParam.pageNum = this.state.pageNum
+    if (this.state.listType === 'search') {
+      listParam.searchType = this.state.searchType
+      listParam.searchKeyword = this.state.searchKeyword
+    }
+    _product.getProductList(listParam).then(res => {
       this.setState(res)
     }, errMsg => {
       this.setState({
         list: []
       })
       _mm.errorTips(errMsg)
+    })
+  }
+
+  onSearch(searchType, searchKeyword) {
+    let listType = searchKeyword === '' ? 'list' : 'search'
+    this.setState({
+      listType: listType,
+      pageNum: 1,
+      searchType: searchType,
+      searchKeyword: searchKeyword
+    }, () => {
+      this.loadProductList()
     })
   }
   
@@ -70,7 +91,15 @@ class ProductList extends React.Component {
     ]
     return (
       <div id="page-wrapper">
-        <PageTitle title="商品列表"/>
+        <PageTitle title="商品列表">
+          <div className="page-header-right">
+            <Link to="/product/save" className="btn btn-primary">
+              <i className="fa fa-plus"></i>
+              <span>添加商品</span>
+            </Link>
+          </div>
+        </PageTitle>
+        <ListSearch onSearch={ (searchType, searchKeyword) => {this.onSearch(searchType, searchKeyword)} }/>
         <TableList tableHeads={tableHeads}>
           {
             this.state.list.map((product, index) => {
